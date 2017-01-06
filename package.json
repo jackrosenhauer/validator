@@ -1,0 +1,33 @@
+{
+  "name": "validator",
+  "version": "1.0.0",
+  "description": "input validator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackrosenhauer/validator.git"
+  },
+  "keywords": [
+    "javascript",
+    "nodejs",
+    "validation",
+    "validator"
+  ],
+  "author": "Jack Rosenhauer II",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackrosenhauer/validator/issues"
+  },
+  "homepage": "https://github.com/jackrosenhauer/validator#readme",
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "gulp": "^3.9.1",
+    "gulp-mocha": "^3.0.1"
+  }
+}
