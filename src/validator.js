@@ -120,7 +120,8 @@ Validator.prototype = {
 		return true;
 	},
 	isPort: function(port) {
-
+		var self = this;
+		return self.isInteger(port, 65535, 1);
 	},
 	isString: function(string, maxLen, minLen) {
 		if (typeof string !== "string") {
@@ -149,7 +150,14 @@ Validator.prototype = {
 
 	},
 	isInteger: function(integer, max, min) {
-
+		var reg = /^[\-]?[0-9]+$/;
+		if (min){
+			return reg.test(integer) && integer <= max && integer >= min;
+		} else if (max){
+			return reg.test(integer) && integer <= max;
+		} else {
+			return reg.test(integer);
+		}
 	},
 	isNumeric: function(number) {
 
