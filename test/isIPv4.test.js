@@ -11,6 +11,12 @@ suite("validator.js isIPv4", function(){
 
 	var validIPv4 = ["1.1.1.1", "0.0.0.0", "255.255.255.255", "1.2.3.4"];
 	var invalidIPv4 = ["...", "...1", ".2.2.", "a.b.c.d", "255.255.255.256", "256.256.256.256", "1.1.1.a", "1.2", "1.2.3"];
+	var invalidIPv4AddressLeadingZeros = [
+		"09.1.1.1",
+		"9.09.1.1",
+		"9.9.09.9",
+		"9.9.9.09"
+	];
 
 	validIPv4.forEach(function(ipv4){
 		test(`valid IPv4 address ${ipv4}`, function(){
@@ -20,6 +26,12 @@ suite("validator.js isIPv4", function(){
 
 	invalidIPv4.forEach(function(ipv4){
 		test(`invalid IPv4 address ${ipv4}`, function(){
+			assert.equal(false, validator.isIPv4(ipv4));
+		});
+	});
+
+	invalidIPv4AddressLeadingZeros.forEach(function(ipv4){
+		test(`invalid IPv4 -- leading zeros -- ${ipv4}`, function(){
 			assert.equal(false, validator.isIPv4(ipv4));
 		});
 	});
