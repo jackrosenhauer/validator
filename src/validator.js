@@ -65,7 +65,7 @@ Validator.prototype = {
 		}
 		ip = ip.toLowerCase();
 
-		if (ip === "::" || ip === "::1"){
+		if (ip === "::" || ip === "::1") {
 			return true;
 		}
 
@@ -98,7 +98,7 @@ Validator.prototype = {
 		// 	return false;
 		// }
 		var empty = 0;
-		for(var i = 0, len = doubleHexOctets.length; i < len; i++){
+		for (var i = 0, len = doubleHexOctets.length; i < len; i++) {
 			var doubleHexOctet = doubleHexOctets[i];
 			if (doubleHexOctet === "") {
 				if (++empty > 1 && hasSecretValue === false) {
@@ -107,9 +107,9 @@ Validator.prototype = {
 					return false;
 				}
 			} else if (i + 1 === doubleHexOctets.length && doubleHexOctet.indexOf(".") !== -1) {
-				if (doubleHexOctets.length + 1 > 8){
+				if (doubleHexOctets.length + 1 > 8) {
 					return false;
-				} else if (self.isIPv4(doubleHexOctet) === false){
+				} else if (self.isIPv4(doubleHexOctet) === false) {
 					return false;
 				}
 			} else if (self.isNonLeadingZeroDoubleHexOctet(doubleHexOctet) === false) {
@@ -119,15 +119,15 @@ Validator.prototype = {
 
 		return true;
 	},
-	isPort: function(port){
+	isPort: function(port) {
 
 	},
 	isString: function(string, maxLen, minLen) {
-		if (typeof string !== "string"){
+		if (typeof string !== "string") {
 			return false;
-		} else if (minLen){
+		} else if (minLen) {
 			return string.length <= maxLen && string.length >= minLen;
-		} else if (maxLen){
+		} else if (maxLen) {
 			return string.length <= maxLen;
 		}
 
@@ -155,7 +155,11 @@ Validator.prototype = {
 
 	},
 	isBoolean: function(boolean) {
-
+		if (typeof boolean === "string") {
+			return (boolean.toLowerCase() === "false" || boolean.toLowerCase() === "true");
+		} else {
+			return boolean == true || boolean == false;
+		}
 	},
 	isURL: function(url) {
 
@@ -163,7 +167,7 @@ Validator.prototype = {
 	isUSPhoneNumber: function(phoneNumber) {
 
 	},
-	isFacebookLink: function(facebookURL){
+	isFacebookProfileLink: function(facebookURL) {
 
 	}
 };
