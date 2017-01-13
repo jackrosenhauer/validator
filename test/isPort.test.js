@@ -25,7 +25,7 @@ suite("validator.js isPort --", function() {
 	});
 
 	falseyValues.forEach(function(falseyValue) {
-		test(`falsey port value ${falseyValue} should be ${falseyValue === 0}`, function() {
+		test(`falsey port value ${falseyValue} should be ${falseyValue}`, function() {
 			assert.equal(false, validator.isPort(falseyValue));
 		});
 	});
